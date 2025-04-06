@@ -38,7 +38,7 @@ router.post("/", async (req, res) => {
     mailMe();
 
     res.writeHead(200, { "content-type": "application/json; charset=utf-8" });
-    res.write(JSON.stringify({ status: true }));
+    res.write(JSON.stringify({ status: true, msgId: info.messageId }));
     res.send();
   } catch (err) {
     console.log(err.message);
