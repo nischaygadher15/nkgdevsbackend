@@ -1,6 +1,6 @@
 import express from "express";
 import "dotenv/config";
-import getmail from "./Router/getEmail.js";
+import getmail from "../Router/getEmail.js";
 import cors from "cors";
 
 let app = express();
