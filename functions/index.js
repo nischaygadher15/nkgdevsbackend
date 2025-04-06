@@ -2,6 +2,7 @@ import express from "express";
 import "dotenv/config";
 import getmail from "../Router/getEmail.js";
 import cors from "cors";
+import indexRouter from "../Router/index.js";
 
 let app = express();
 
@@ -14,13 +15,15 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  res.writeHead(200, { "content-type": "text/html" });
-  res.write("<h1 >Hello from NKGdevs Portfolio Backend Server</h1>");
-  res.send();
-});
+// app.get("/", (req, res) => {
+//   res.writeHead(200, { "content-type": "text/html" });
+//   res.write("<h1 >Hello from NKGdevs Portfolio Backend Server</h1>");
+//   res.send();
+// });
 
-app.use("/getemail", getmail);
+// app.use("/getemail", getmail);
+app.use("/.netlify/functions/", indexRouter);
+app.use("/.netlify/functions/getemail", getmail);
 
 let port = process.env.PORT;
 app.listen(3000, () => console.log(`Server running on Port: ${port}`));
