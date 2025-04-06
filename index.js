@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "*",
+    origin: "http://nkgdevs.netlify.app/",
     methods: ["GET", "POST"],
   })
 );
